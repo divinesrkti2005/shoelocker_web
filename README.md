@@ -36,7 +36,7 @@ A modern, futuristic e-commerce website for premium sneakers built with React, f
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/divinesrkti2005/shoe_locker-web-frontend.git
    cd shoe-locker
    ```
 
@@ -120,3 +120,10 @@ For support and questions, please contact the development team.
 ---
 
 **ShoeLocker** - Step into style with the world's finest sneakers! 👟✨
+
+## 🎯 Project Status
+
+✅ **Completed**: Full transformation from trek website to ShoeLocker e-commerce platform
+✅ **Features**: Modern UI/UX with futuristic blue theme
+✅ **Admin Panel**: Complete dashboard and management system
+✅ **Responsive**: Mobile-first design approach

@@ -1,0 +1,16 @@
+<script>start("c:\\Users\\User\\Documents\\Developer\\flutter\\shoe_locker\\backend\\");</script>
+<script>onHasParentDirectory();</script>
+<script>addRow("config","config",1,0,"0 B",1752394853,"7/13/25, 2:05:53 PM");</script>
+<script>addRow("controllers","controllers",1,0,"0 B",1752395475,"7/13/25, 2:16:15 PM");</script>
+<script>addRow("middleware","middleware",1,0,"0 B",1752394853,"7/13/25, 2:05:53 PM");</script>
+<script>addRow("models","models",1,0,"0 B",1752395189,"7/13/25, 2:11:29 PM");</script>
+<script>addRow("node_modules","node_modules",1,0,"0 B",1753254208,"7/23/25, 12:48:28 PM");</script>
+<script>addRow("routes","routes",1,0,"0 B",1752395247,"7/13/25, 2:12:27 PM");</script>
+<script>addRow("test","test",1,0,"0 B",1752394853,"7/13/25, 2:05:53 PM");</script>
+<script>addRow("utils","utils",1,0,"0 B",1752395659,"7/13/25, 2:19:19 PM");</script>
+<script>addRow(".gitignore",".gitignore",0,840,"840 B",1752394853,"7/13/25, 2:05:53 PM");</script>
+<script>addRow(".mocharc.json",".mocharc.json",0,314,"314 B",1752394853,"7/13/25, 2:05:53 PM");</script>
+<script>addRow("package-lock.json","package-lock.json",0,143944,"141 kB",1753254208,"7/23/25, 12:48:28 PM");</script>
+<script>addRow("package.json","package.json",0,1259,"1.2 kB",1752395142,"7/13/25, 2:10:42 PM");</script>
+<script>addRow("README.md","README.md",0,49,"49 B",1752394853,"7/13/25, 2:05:53 PM");</script>
+<script>addRow("server.js","server.js",0,2359,"2.3 kB",1752395216,"7/13/25, 2:11:56 PM");</script>

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../common/customer/Navbar";
 import Footer from "../common/customer/Footer";
-import PackageCard from "../common/customer/PackageCard";
+import SneakerCard from "../common/customer/SneakerCard";
 
-const Packages = () => {
+const Sneakers = () => {
   const [sneakers, setSneakers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -12,7 +12,7 @@ const Packages = () => {
   useEffect(() => {
     const fetchSneakers = async () => {
       try {
-        const res = await axios.get("/api/v1/package");
+        const res = await axios.get("http://localhost:3000/api/v1/shoes");
         setSneakers(res.data);
       } catch (err) {
         setError("Failed to load sneakers. Please try again later.");
@@ -62,7 +62,7 @@ const Packages = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sneakers.map((sneaker) => (
-              <PackageCard key={sneaker._id} packageData={sneaker} />
+              <SneakerCard key={sneaker._id} sneakerData={sneaker} />
             ))}
           </div>
         </div>
@@ -72,4 +72,4 @@ const Packages = () => {
   );
 };
 
-export default Packages; 
+export default Sneakers; 

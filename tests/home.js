@@ -4,14 +4,14 @@ import { FaArrowUp } from "react-icons/fa";
 import Footer from "../../components/common/customer/Footer";
 import Hero from "../../components/common/customer/Hero";
 import Navbar from "../../components/common/customer/Navbar";
-import PackageCard from "../../components/common/customer/PackageCard"; // Ensure correct path
+import SneakerCard from "../../components/common/customer/SneakerCard";
 
 const Home = () => {
   const [showScroll, setShowScroll] = useState(false);
-  const [packages, setPackages] = useState([]);
+  const [featuredSneakers, setFeaturedSneakers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const packagesRef = useRef(null);
+  const sneakersRef = useRef(null);
 
   // Handle Scroll Event
   useEffect(() => {
@@ -20,16 +20,17 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Fetch Packages from API
+  // Fetch Featured Sneakers from API
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/v1/package")
+      .get("http://localhost:3000/api/v1/shoes")
       .then((res) => {
-        setPackages(res.data);
+        // Get first 6 sneakers as featured
+        setFeaturedSneakers(res.data.slice(0, 6));
         setLoading(false);
       })
       .catch((err) => {
-        setError("Error fetching packages. Please try again later.");
+        setError("Error fetching sneakers. Please try again later.");
         setLoading(false);
       });
   }, []);
@@ -39,32 +40,32 @@ const Home = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Function to Scroll to Packages Section
-  const scrollToPackages = () => {
-    packagesRef.current?.scrollIntoView({ behavior: "smooth" });
+  // Function to Scroll to Sneakers Section
+  const scrollToSneakers = () => {
+    sneakersRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
-      <Navbar scrollToPackages={scrollToPackages} />
+      <Navbar scrollToSneakers={scrollToSneakers} />
       <Hero />
 
-      {/* Packages Section */}
-      <div ref={packagesRef} className="container mx-auto py-10 px-6">
+      {/* Featured Sneakers Section */}
+      <div ref={sneakersRef} className="container mx-auto py-10 px-6">
         <h2 className="text-3xl font-semibold text-gray-800 text-center mb-6">
-          Explore Our Packages
+          Featured Sneakers
         </h2>
 
         {loading ? (
-          <p className="text-center text-gray-600">Loading packages...</p>
+          <p className="text-center text-gray-600">Loading sneakers...</p>
         ) : error ? (
           <p className="text-center text-red-500">{error}</p>
-        ) : packages.length === 0 ? (
-          <p className="text-center text-gray-600">No packages available.</p>
+        ) : featuredSneakers.length === 0 ? (
+          <p className="text-center text-gray-600">No sneakers available.</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {packages.map((pkg) => (
-              <PackageCard key={pkg._id} packageData={pkg} />
+            {featuredSneakers.map((sneaker) => (
+              <SneakerCard key={sneaker._id} sneakerData={sneaker} />
             ))}
           </div>
         )}

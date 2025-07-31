@@ -15,8 +15,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Confirmed from "../../private/bookings/Confirmed";
 import Pending from "../../private/bookings/Pending";
-import AddPackages from "../../private/packages/AddPackages";
-import ManagePackages from "../../private/packages/ManagePackages";
+import AddSneakers from "../../private/sneakers/AddSneakers";
+import ManageSneakers from "../../private/sneakers/ManageSneakers";
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -62,17 +62,17 @@ const Sidebar = () => {
         </Link>
 
         <div>
-          <button onClick={() => toggleMenu("packages")} className="flex items-center justify-between w-full p-3 rounded-lg hover:bg-blue-700 transition-colors">
+          <button onClick={() => toggleMenu("sneakers")} className="flex items-center justify-between w-full p-3 rounded-lg hover:bg-blue-700 transition-colors">
             <div className="flex items-center gap-3">
               <Package size={20} />
               {!isCollapsed && <span>Sneaker Products</span>}
             </div>
-            {!isCollapsed && (openMenus.packages ? <ChevronDown size={18} /> : <ChevronRight size={18} />)}
+            {!isCollapsed && (openMenus.sneakers ? <ChevronDown size={18} /> : <ChevronRight size={18} />)}
           </button>
-          {!isCollapsed && openMenus.packages && (
+          {!isCollapsed && openMenus.sneakers && (
             <div className="ml-6 space-y-1 mt-1">
-              <Link onClick={AddPackages} to="/admin/addpackages" className="block p-2 rounded hover:bg-blue-700 transition-colors">Add New Product</Link>
-              <Link onClick={ManagePackages} to="/admin/managepackages" className="block p-2 rounded hover:bg-blue-700 transition-colors">Manage Products</Link>
+              <Link onClick={AddSneakers} to="/admin/addsneakers" className="block p-2 rounded hover:bg-blue-700 transition-colors">Add New Product</Link>
+              <Link onClick={ManageSneakers} to="/admin/managesneakers" className="block p-2 rounded hover:bg-blue-700 transition-colors">Manage Products</Link>
             </div>
           )}
         </div>

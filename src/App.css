@@ -1,7 +1,5 @@
 #root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
+    /* Removing max-width and padding to allow full-width layouts */
     text-align: center;
   }
   

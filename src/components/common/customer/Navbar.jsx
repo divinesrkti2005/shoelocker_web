@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaBars, FaHeart, FaTimes } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ scrollToSneakers }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [user, setUser] = useState(null);
   const location = useLocation();
@@ -44,7 +44,7 @@ const Navbar = () => {
         {/* Navigation Links */}
         <div className="hidden md:flex space-x-6">
           <Link to="/" className="text-gray-700 hover:text-blue-600 transition-colors">Home</Link>
-          <Link to="/packages" className="text-gray-700 hover:text-blue-600 transition-colors">Sneakers</Link>
+          <Link to="/sneakers" className="text-gray-700 hover:text-blue-600 transition-colors">Sneakers</Link>
           <Link to="/review" className="text-gray-700 hover:text-blue-600 transition-colors">Reviews</Link>
           {user && (
             <Link to="/mybooking" className="text-gray-700 hover:text-blue-600 transition-colors">My Orders</Link>
@@ -86,7 +86,7 @@ const Navbar = () => {
       {menuOpen && (
         <div className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full py-4 border-b border-blue-100">
           <Link to="/" className="block px-6 py-2 text-gray-700 hover:bg-blue-50 transition-colors">Home</Link>
-          <Link to="/packages" className="block px-6 py-2 text-gray-700 hover:bg-blue-50 transition-colors">Sneakers</Link>
+          <Link to="/sneakers" className="block px-6 py-2 text-gray-700 hover:bg-blue-50 transition-colors">Sneakers</Link>
           <Link to="/review" className="block px-6 py-2 text-gray-700 hover:bg-blue-50 transition-colors">Reviews</Link>
           {user && (
             <Link to="/mybooking" className="block px-6 py-2 text-gray-700 hover:bg-blue-50 transition-colors">My Orders</Link>

@@ -18,12 +18,12 @@ const Favorite = lazy(() => import("./components/public/Favorite"));
 const Myprofile = lazy(() => import("./components/public/Myprofile"));
 const Mybooking = lazy(() => import("./components/public/Mybooking"));
 const EditProfile = lazy(() => import("./components/public/Editprofile"));
-const PackageDetail = lazy(() => import("./components/public/PackageDetail"));
-const Packages = lazy(() => import("./components/public/Packages"));
+const SneakerDetail = lazy(() => import("./components/public/SneakerDetail"));
+const Sneakers = lazy(() => import("./components/public/Sneakers"));
 
 const Dashboard = lazy(() => import("./components/private/dashboard/Dashboard"));
-const AddPackages = lazy(() => import("./components/private/packages/AddPackages"));
-const ManagePackages = lazy(() => import("./components/private/packages/ManagePackages"));
+const AddSneakers = lazy(() => import("./components/private/sneakers/AddSneakers"));
+const ManageSneakers = lazy(() => import("./components/private/sneakers/ManageSneakers"));
 const Pending = lazy(() => import("./components/private/bookings/Pending"));
 const Confirmed = lazy(() => import("./components/private/bookings/Confirmed"));
 const Payments = lazy(() => import("./components/private/payments/Payments"));
@@ -53,7 +53,6 @@ function App() {
       element: <Suspense><Register /></Suspense>,
       errorElement: <>Error</>,
     },
-   
     {
       path: "/checkout/:id",
       element: <Suspense><Checkout /></Suspense>,
@@ -89,7 +88,6 @@ function App() {
       element: <Suspense><Review /></Suspense>,
       errorElement: <>Error</>,
     },
-   
     {
       path: "/favorite",
       element: <Suspense><Favorite /></Suspense>,
@@ -111,13 +109,13 @@ function App() {
       errorElement: <>Error</>,
     },
     {
-      path: "/packages",
-      element: <Suspense><Packages /></Suspense>,
+      path: "/sneakers",
+      element: <Suspense><Sneakers /></Suspense>,
       errorElement: <>Error</>,
     },
     {
-      path: "/packages/:id",
-      element: <Suspense><PackageDetail /></Suspense>,
+      path: "/sneakers/:id",
+      element: <Suspense><SneakerDetail /></Suspense>,
       errorElement: <>Error</>,
     },
     { path: "*", element: <div>404: Page not found</div> },
@@ -125,13 +123,17 @@ function App() {
 
   const privateRoutes = [
     {
+      path: "/",
+      loader: () => redirect("/admin/dashboard"),
+    },
+    {
       path: "/admin",
       element: <Suspense><Layout /></Suspense>,
       errorElement: <>Error</>,
       children: [
         { path: "dashboard", element: <Suspense><Dashboard /></Suspense>, errorElement: <>Error</> },
-        { path: "addpackages", element: <Suspense><AddPackages /></Suspense>, errorElement: <>Error</> },
-        { path: "managepackages", element: <Suspense><ManagePackages /></Suspense>, errorElement: <>Error</> },
+        { path: "addsneakers", element: <Suspense><AddSneakers /></Suspense>, errorElement: <>Error</> },
+        { path: "managesneakers", element: <Suspense><ManageSneakers /></Suspense>, errorElement: <>Error</> },
         { path: "pending", element: <Suspense><Pending /></Suspense>, errorElement: <>Error</> },
         { path: "confirmed", element: <Suspense><Confirmed /></Suspense>, errorElement: <>Error</> },
         { path: "payments", element: <Suspense><Payments /></Suspense>, errorElement: <>Error</> },
